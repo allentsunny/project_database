@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def mypage(request):
-    return render(request,'mypage.html')
+def index_pro(request):
+    return render(request,'index_pro.html')
  
 # Create your views here.
 
