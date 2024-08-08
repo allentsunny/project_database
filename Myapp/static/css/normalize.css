@@ -234,7 +234,7 @@ big {
 
 h1,h2,h3,h4,h5,h6{
 	font-weight:500;
-	color:#f8f9fd;
+	color:#0c0c0c;
 }
 a,button{
 	-webkit-transition:all 0.3s ease;
