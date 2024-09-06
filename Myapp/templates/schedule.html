@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        label { display: block; margin-bottom: 8px; }
+        input, select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Schedule an Appointment</h1>
+        <form id="appointment-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required>
+
+            <label for="doctor_specialization">Select Doctor:</label>
+            <select id="doctor_specialization" name="doctor_specialization" required>
+                <option value="">Select a specialization</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Dentist">Dentist</option>
+                <option value="ENT">ENT</option>
+                <option value="Gynecologist">Gynecologist</option>
+            </select>
+
+            <label for="appointment_date">Appointment Date:</label>
+            <input type="date" id="appointment_date" name="appointment_date" required>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="confirmation-message"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('appointment-form');
+            const formData = new FormData(form);
+
+            fetch('/chatbot/schedule/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')  // Include CSRF token for POST requests
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('confirmation-message').innerText = data.message;
+                form.reset();  // Reset form fields
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+</body>
+</html>

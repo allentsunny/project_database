@@ -56,15 +56,17 @@
                                 <idv class="row">
                                     <div class="col-lg-12">
                         
-<form id="login">
-    <label for="username">Username:</label>
+<form class="input" method="post">
+     {% csrf_token %}
+    {{form.as_p}}
+    <!-- <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
-    <span id="passwordError" class="error"></span>
+    <span id="passwordError" class="error"></span> -->
 
-    <button type="submit">Login</button>
+    <button type="submit" id="button">Login</button>
 </form>
                     </div>
                 </div>
@@ -96,7 +98,7 @@
     input[type="text"], input[type="password"] {
         width: 100%;
         padding: 8px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         box-sizing: border-box;
     }
     button {
@@ -104,7 +106,7 @@
         color: white;
         padding: 10px 20px;
         border: none;
-        cursor: pointer;
+        cursor: pointer; 
     }
     button:hover {
         background-color: #19f112;

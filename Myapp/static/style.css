@@ -181,7 +181,7 @@ body{
 	display: block;
 	font-size: 15px;
 	margin-bottom: 5px;
-	font-weight: 500;
+	font-weight: 300px;
 }
 .color-plate p {
 	font-size: 13px;
@@ -370,7 +370,7 @@ body{
 	visibility:visible;
 }
 .header .nav li:hover a{
-	color:#08be20;
+	color:#a30ce9;
 }
 .header .nav li a i {
 	display: inline-block;
@@ -1332,19 +1332,19 @@ Slider Animation
 }
 .services .single-service h4{
 	text-transform:capitalize;
-	margin-bottom:25px;
+	margin-bottom:50px;
 	color:#2C2D3F;
 }
 .services .single-service h4 a{
 	color:#2C2D3F;
-	font-size:20px;
+	font: size 30px;
 	font-weight:600;
 }
 .services .single-service h4 a:hover{
 	color:#1A76D1;
 }
 .services .single-service p{
-	color:#868686;
+	color:#0a0a0a;
 }
 /*-- Service Details --*/
 .services-details-img {
@@ -2874,6 +2874,7 @@ Slider Animation
 }
 .login .login-form{
 	padding:50px 40px;
+	margin: auto;
 }
 .login .login-form h2 {
 	position: relative;
@@ -4176,6 +4177,23 @@ Slider Animation
 	display:inline-block;
 	margin-left:4px;
 }
+input[type="email"],
+  input[type="password"],
+  input[type='text']{
+    width: 300px;
+    height:40px ;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing:border-box;
+    border-color:   #494949;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.226);
+    font-size: 18px;
+    font-weight: 550;
+	text-align: center;
+  }
 /*=========================
 	End Footer CSS
 ===========================*/
