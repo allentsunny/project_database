@@ -62,11 +62,12 @@
        
 }
     label {
+        color: #000;
         display: block;
         margin-bottom: 8px;
     }
     input[type="text"], input[type="email"], input[type="password"] {
-        width: 100%;
+        width: 300px;
         padding: 8px;
         margin-bottom: 10px;
         box-sizing: border-box;
@@ -98,8 +99,10 @@
                             <h2>We Offer Different Services To Improve Your Health</h2>
                             <!-- <im src="" alt="#"> -->
     <div style="background-image:url(''); align-items: center; width: 100%;">
-<form id="registration">
-    <label for="username">Username:</label>
+<form id="registration" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <!-- <label for="username">Username:</label>
     <input type="text" id="username" name="username" style="width: 390px" required>
 
     <label for="Date of birth">Date of birth:</label>
@@ -113,7 +116,7 @@
 
     <label for="confirmPassword">Confirm Password:</label>
     <input type="password" id="confirmPassword" name="confirmPassword" style="width: 390px" required>
-    <span id="passwordError" class="error"></span><br>
+    <span id="passwordError" class="error"></span><br> -->
 
     <button type="submit">Register</button>
 </form>

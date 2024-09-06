@@ -1,7 +1,6 @@
 from django import forms
 class SignupForm(forms.Form):
-    username=forms.CharField()
-    email=forms.CharField()
-    password=forms.CharField(widget=forms.PasswordInput)
-    password=confirm=forms.CharField(widget=forms.PasswordInput)
-    
+    username = forms.CharField(label='Username', max_length=150)
+    email = forms.EmailField(label='Email')
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    confirm_password = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
